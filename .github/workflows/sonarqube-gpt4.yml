@@ -33,14 +33,14 @@ jobs:
         echo "FIXES=$FIXES" >> $GITHUB_ENV
 
     - name: Implement fixes using GPT-4 API
-      if: steps.analyze-results.outputs.fixes != ''
+      if: env.FIXES != ''
       run: |
-        # Add a script to use GPT-4 API to implement the suggested fixes.
-        ./gptscripts/implement_fixes.sh "${{ steps.analyze-results.outputs.fixes }}"
+        # Add a script to use GPT-4 API to implement the suggested fixes.        
+        ./gptscripts/implement_fixes.sh "${{ env.FIXES }}"
 
-    - name: Commit changes and create PR
-      uses: peter-evans/create-pull-request@v3
-      with:
-        commit-message: "Fix SonarCloud findings"
-        title: "Fix SonarCloud findings"
-        body: "This PR addresses the SonarCloud findings."
+    # - name: Commit changes and create PR
+    #   uses: peter-evans/create-pull-request@v3
+    #   with:
+    #     commit-message: "Fix SonarCloud findings"
+    #     title: "Fix SonarCloud findings"
+    #     body: "This PR addresses the SonarCloud findings."

@@ -28,7 +28,9 @@ def generate_code_fix(prompt):
 for fix in suggested_fixes:
     # You can customize the prompt based on your requirements
     prompt = f"Given a JavaScript code issue with the following description:\n{fix}\nProvide a code change to fix this issue:"
+    echo prompt
     code_fix = generate_code_fix(prompt)
+    echo code_fix
 
     # Apply the code_fix to your codebase
     # You may need to implement logic to locate the affected file and line number and apply the suggested fix accordingly.
