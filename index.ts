@@ -17,6 +17,11 @@ const server = http.createServer((req, res) => {
     const decoder = new string_decoder.StringDecoder('utf-8');
     let buffer = '';
 
+    let a = 32;
+    let b = 132;
+    let d = 0;   
+
+
     req.on('data', (data: any) => {
         buffer += decoder.write(data);
     });
@@ -63,6 +68,7 @@ const server = http.createServer((req, res) => {
         });
 
     });
+    let c = a + b/d;
 
 });
 
