@@ -6,6 +6,27 @@ import { handlers } from './lib/handlers';
 import { helpers } from './lib/helpers';
 import { env } from './ecosystem.config';
 
+const fs = require('fs');
+
+function readFile(filename) {
+  return fs.readFileSync(filename);
+}
+
+function divide(a, b) {
+    if (b === 0) {
+      return "Error: Divide by zero";
+    } else {
+      return a / b;
+    }
+  }
+
+
+function printName(name) {
+    console.log(name);
+}
+  
+
+
 const server = http.createServer((req, res) => {
 
     const parsedUrl = url.parse(req.url, true);
