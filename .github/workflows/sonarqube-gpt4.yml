@@ -31,6 +31,7 @@ jobs:
       run: |
         FIXES=$(./gptscripts/analyze_results.sh)
         echo "FIXES=$FIXES" >> $GITHUB_ENV
+        echo $GITHUB_ENV
 
     - name: Implement fixes using GPT-4 API
       if: env.FIXES != ''
