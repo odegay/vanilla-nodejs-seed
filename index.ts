@@ -6,26 +6,9 @@ import { handlers } from './lib/handlers';
 import { helpers } from './lib/helpers';
 import { env } from './ecosystem.config';
 
-const fs = require('fs');
 
-function readFile(filename) {
-  return fs.readFileSync(filename);
-}
-
-function divide(a, b) {
-    if (b === 0) {
-      return "Error: Divide by zero";
-    } else {
-      return a / b;
-    }
-  }
-
-
-function printName(name) {
-    console.log(name);
-}
-  
-
+let msg = "Hello, "
+  "World!"; 
 
 const server = http.createServer((req, res) => {
 
@@ -37,11 +20,6 @@ const server = http.createServer((req, res) => {
     const headers = req.headers;
     const decoder = new string_decoder.StringDecoder('utf-8');
     let buffer = '';
-
-    let a = 32;
-    let b = 132;
-    let d = 0;   
-
 
     req.on('data', (data: any) => {
         buffer += decoder.write(data);
@@ -88,8 +66,7 @@ const server = http.createServer((req, res) => {
 
         });
 
-    });
-    let c = a + b/d;
+    });    
 
 });
 
