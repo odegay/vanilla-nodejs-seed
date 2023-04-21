@@ -7,8 +7,9 @@ import { helpers } from './lib/helpers';
 import { env } from './ecosystem.config';
 
 
-let msg = "Hello, "
-  "World!"; 
+function test1 (asdasd: string) {
+    return asdasd;
+}
 
 const server = http.createServer((req, res) => {
 
@@ -24,6 +25,8 @@ const server = http.createServer((req, res) => {
     req.on('data', (data: any) => {
         buffer += decoder.write(data);
     });
+
+    test1('rtkj', sdsds);
 
     req.on('end', () => {
 
@@ -69,6 +72,7 @@ const server = http.createServer((req, res) => {
     });    
 
 });
+
 
 server.listen(env.port, () => {
     console.log('\x1b[32m%s\x1b[0m', `Node.js Seed Server Started at Port ${env.port} in ${env.envName} mode!`);
