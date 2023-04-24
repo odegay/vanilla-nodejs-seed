@@ -1,3 +1,6 @@
+{'line': 1, 'message': 'Refactor this function to always return the same type.'}
+
+---
 function divide(a, b) {
     if (b === 0) {
       return "Error: Divide by zero";
@@ -10,5 +13,4 @@ function test1 (asdasd: string) {
     return asdasd;
 }
 
-export default test1;
-
+export default test
