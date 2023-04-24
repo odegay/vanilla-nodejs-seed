@@ -6,7 +6,7 @@ function divide(a, b) {
     }
   }
 
-function test1 (asdasd: string) {
+function test1 (asdasd: number) {
     return asdasd;
 }
 
