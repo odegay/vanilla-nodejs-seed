@@ -8,7 +8,7 @@ import { env } from './ecosystem.config';
 import test1 from './helper1';
 
 
-function test1 (asdasd: string) {
+function test1 (asdasd: string, sdsds: string) {
     return asdasd;
 }
 
@@ -16,29 +16,29 @@ const server = http.createServer((req, res) => {
 
     const parsedUrl = url.parse(req.url, true);
     const path = parsedUrl.pathname;
-    const trimmedPath = path.replace(/^\/+|\/+$/g, '');
-    const httpMethod = req.method;
-    const queryStringParamsObject = parsedUrl.query;
-    const headers = req.headers;
-    const decoder = new string_decoder.StringDecoder('utf-8');
-    let buffer = '';
+import * as http from 'http';
+import * as url from 'url';
+import * as string_decoder from 'string_decoder';
+import { handlers } from './lib/handlers';
+import { helpers } from './lib/helpers';
+import { env } from './ecosystem.config';
+import test1 from './helper1';
 
-    req.on('data', (data: any) => {
-        buffer += decoder.write(data);
-    });
+
+function test1 (asdasd: string) {
 
     test1('rtkj', sdsds);
 
-    req.on('end', () => {
+import * as http from 'http';
+import * as url from 'url';
+import * as string_decoder from 'string_decoder';
+import { handlers } from './lib/handlers';
+import { helpers } from './lib/helpers';
+import { env } from './ecosystem.config';
+import test1 from './helper1';
 
-        buffer += decoder.end();
 
-        const chosenHandler = routes[trimmedPath] ? routes[trimmedPath] : handlers.notFound;
-        const data = {
-            'trimmedPath': trimmedPath,
-            'queryStringParamsObject': queryStringParamsObject,
-            'method': httpMethod,
-            'headers': headers,
+function test1 (asdasd: string) {
             'payload': helpers.parseJsonToObject(buffer)
         };
 

@@ -10,5 +10,5 @@ function test1 (asdasd: string) {
     return asdasd;
 }
 
-export default test1;
+export default divide;
 
