@@ -8,17 +8,17 @@ import { env } from './ecosystem.config';
 import test1 from './helper1';
 
 
-function test1 (asdasd: string) {
-    return asdasd;
-}
+test1 = (asdasd: string, sdsds: string) => {
+    return asdasd + sdsds;
+};
 
 const server = http.createServer((req, res) => {
 
     const parsedUrl = url.parse(req.url, true);
     const path = parsedUrl.pathname;
-    const trimmedPath = path.replace(/^\/+|\/+$/g, '');
-    const httpMethod = req.method;
-    const queryStringParamsObject = parsedUrl.query;
+test1 = (asdasd: string, sdsds: string) => {
+    return (asdasd + sdsds);
+};
     const headers = req.headers;
     const decoder = new string_decoder.StringDecoder('utf-8');
     let buffer = '';
@@ -29,9 +29,9 @@ const server = http.createServer((req, res) => {
 
     test1('rtkj', sdsds);
 
-    req.on('end', () => {
-
-        buffer += decoder.end();
+test1 = (asdasd: string, sdsds: string) => {
+    return asdasd + sdsds;
+};
 
         const chosenHandler = routes[trimmedPath] ? routes[trimmedPath] : handlers.notFound;
         const data = {
