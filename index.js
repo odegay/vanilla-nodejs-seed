@@ -8,6 +8,23 @@ import { env } from './ecosystem.config';
 import test1 from './helper1';
 
 
+import * as http from 'http';
+import * as url from 'url';
+import * as string_decoder from 'string_decoder';
+import { handlers } from './lib/handlers';
+import { helpers } from './lib/helpers';
+import { env } from './ecosystem.config';
+import test1 from './helper1';
+
+
+const server = http.createServer((req, res) => {
+
+    const parsedUrl = url.parse(req.url, true);
+    const path = parsedUrl.pathname;
+    const trimmedPath = path.replace(/^\/+|\/+$/g, '');
+    const httpMethod = req.method.toLowerCase();
+    const queryStringObject = parsedUrl.query;
+    const headers =
 function test1 (asdasd: string) {
     return asdasd;
 }
@@ -17,37 +34,20 @@ const server = http.createServer((req, res) => {
     const parsedUrl = url.parse(req.url, true);
     const path = parsedUrl.pathname;
     const trimmedPath = path.replace(/^\/+|\/+$/g, '');
-    const httpMethod = req.method;
-    const queryStringParamsObject = parsedUrl.query;
-    const headers = req.headers;
-    const decoder = new string_decoder.StringDecoder('utf-8');
-    let buffer = '';
+    const httpMethod = req
+import test1 from './helper1';
 
-    req.on('data', (data: any) => {
-        buffer += decoder.write(data);
-    });
 
-    test1('rtkj', sdsds);
+function test1 (asdasd: string) {
+    return asdasd;
+}
 
-    req.on('end', () => {
+const server = http.createServer((req, res) => {
 
-        buffer += decoder.end();
-
-        const chosenHandler = routes[trimmedPath] ? routes[trimmedPath] : handlers.notFound;
-        const data = {
-            'trimmedPath': trimmedPath,
-            'queryStringParamsObject': queryStringParamsObject,
-            'method': httpMethod,
-            'headers': headers,
-            'payload': helpers.parseJsonToObject(buffer)
-        };
-
-        chosenHandler(data, (statusCode: number, payload: object, contentType: string) => {
-
-            contentType = contentType ? contentType : 'json';
-            statusCode = statusCode && typeof statusCode === 'number' ? statusCode : 406;
-            let payloadString = '';
-
+    const parsedUrl = url.parse(req.url, true);
+    const path = parsedUrl.pathname;
+    const trimmedPath = path.replace(/^\/+|\/+$/g, '');
+    const httpMethod = req
             if (contentType === 'json') {
 
                 res.setHeader('Content-Type', 'application/json');
