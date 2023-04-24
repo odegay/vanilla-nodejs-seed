@@ -7,7 +7,7 @@ function divide(a, b) {
   }
 
 function test1 (asdasd: string) {
-    return asdasd;
+    return divide(asdasd, 1);
 }
 
 export default test1;
