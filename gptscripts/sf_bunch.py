@@ -34,7 +34,8 @@ def fetch_issues(sonar_token, source_directory):
                 params={
                     "organization": ORGANIZATION_KEY,
                     "projects": PROJECT_KEY,
-                    "types": "CODE_SMELL, BUG, VULNERABILITY",
+                    #"types": "CODE_SMELL, BUG, VULNERABILITY",
+                    "types": "BUG, VULNERABILITY",
                     "statuses": "OPEN, CONFIRMED, REOPENED",
                     "p": page_index,
                 },
