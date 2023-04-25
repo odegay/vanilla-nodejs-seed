@@ -43,7 +43,7 @@ def fetch_issues(sonar_token, source_directory):
             )
             response.raise_for_status()
             return response.json()
-        except requests.RequestException as e:
+        except requests.HTTPError as e:
             raise Exception(f"Error: Failed to fetch issues from SonarCloud API: {str(e)}")
 
     # Fetch all pages of issues
@@ -92,9 +92,6 @@ def apply_suggested_fix(file_content, issue, suggested_fix):
     lines = file_content.split('\n')
     issue_line = issue['line'] - 1
     suggested_lines = suggested_fix.split('\n')
-
-    # Calculate the range of lines affected by the issue
-    affected_lines_range = range(issue_line, issue_line + len(suggested_lines))
 
     # Replace the affected lines with the suggested fix lines
     lines[issue_line : issue_line + len(suggested_lines)] = suggested_lines
