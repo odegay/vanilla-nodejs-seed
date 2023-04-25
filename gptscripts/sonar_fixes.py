@@ -85,10 +85,6 @@ def fetch_issues(sonar_token, source_directory):
     return issues_by_file
 
 def generate_prompt(file_content, issue):
-    #return f"Provide a code fix in the divide() function for the following issue in this code:\n\nIssue on line {issue['line']}: {issue['message']}\n\n---\n{file_content}\n---\n\nSuggested Fix:"
-    #return f"\nGiven the following code:\n{file_content}\nProvide a fix for the following issue found by SonarCloud:{issue['message']}\nThe issue is located on line {issue['line']}\nSuggested Fix:"
-    #return f"Issue: {issue}\n\n---\n{file_content}\n---\n\nSuggested Fix:"
-    #return f"Please fix the issue in the divide() function in the given code snippet. The issue occurs on line {issue['line']} and is described as: {issue['message']}\n\n---\n{file_content}\n---\n\nProvide the corrected divide() function below:"
     return f"##### The SonarCloud found the following issue on line {issue['line']}: {issue['message']}\n \n### Code with issues\n{file_content}\n \n### Fixed Code that only contains fixed block of lines of code and not the entire code:"
 
 def apply_suggested_fix(file_content, issue, suggested_fix):
@@ -121,15 +117,6 @@ def implement_fixes(issues_by_file):
             prompt = generate_prompt(file_content, issue)
             print(f"Generating suggestion for the following prompt: {prompt}")
             try:
-                # response = openai.Completion.create(
-                #     engine="text-davinci-002",
-                #     prompt=prompt,
-                #     max_tokens=150,
-                #     n=1,
-                #     stop=None,
-                #     temperature=0.3,
-                # )
-
                 response = openai.Completion.create(
                     model="text-davinci-003",                    
                     prompt=prompt,
