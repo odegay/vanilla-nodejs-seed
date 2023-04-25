@@ -22,7 +22,13 @@ SONAR_API_URL = "https://sonarcloud.io/api"
 # GITHUB_ACCESS_TOKEN = "os.environ['GITHUB_ACCESS_TOKEN_ENV']"
 
 # DEV CONSTANTS
-
+SONAR_ORG_KEY="odegay"
+SONAR_PROJECT_KEY="odegay_vanilla-nodejs-seed"
+SONAR_TOKEN="08dade2d05c5fc3eebfa6cf7be8247d314cec854"
+OPENAI_API_KEY = "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"
+GITHUB_OWNER = 'odegay'
+GITHUB_REPO_NAME = 'vanilla-nodejs-seed'
+GITHUB_ACCESS_TOKEN = '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'
 
 
 def fetch_issues(sonar_token, source_directory):
