@@ -11,19 +11,13 @@ from datetime import datetime
 
 SONAR_API_URL = "https://sonarcloud.io/api"
 # PROD CONSTANTS
-# SONAR_ORG_KEY = os.environ["SONAR_ORGANIZATION_KEY"]
-# SONAR_PROJECT_KEY = os.environ["SONAR_PROJECT_KEY"]
-# SONAR_TOKEN = os.environ["SONAR_TOKEN"]
-
-# OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
-
-# GITHUB_OWNER = os.environ["GITHUB_OWNER_ENV"]
-# GITHUB_REPO_NAME = os.environ["GITHUB_REPO_NAME_ENV"]
-# GITHUB_ACCESS_TOKEN = "os.environ['GITHUB_ACCESS_TOKEN_ENV']"
-
-# DEV CONSTANTS
-
-
+SONAR_ORG_KEY = os.environ["SONAR_ORGANIZATION_KEY"]
+SONAR_PROJECT_KEY = os.environ["SONAR_PROJECT_KEY"]
+SONAR_TOKEN = os.environ["SONAR_TOKEN"]
+OPENAI_API_KEY = os.environ["OPENAI_API_KEY"]
+GITHUB_OWNER = os.environ["GITHUB_OWNER_ENV"]
+GITHUB_REPO_NAME = os.environ["GITHUB_REPO_NAME_ENV"]
+GITHUB_ACCESS_TOKEN = "os.environ['GITHUB_ACCESS_TOKEN_ENV']"
 
 def fetch_issues(sonar_token, source_directory):
     SONAR_API_BASE_URL = "https://sonarcloud.io/api"
@@ -91,10 +85,6 @@ def generate_all_issues_prompt(file_content, issues):
     return f"##### The SonarCloud found the following issues:\n{issues_text}\n \n### Code with issues\n{file_content}\n \n### Fixed Code that addresses all issues:"    
 
 def generate_prompt(file_content, issue):
-    #return f"Provide a code fix in the divide() function for the following issue in this code:\n\nIssue on line {issue['line']}: {issue['message']}\n\n---\n{file_content}\n---\n\nSuggested Fix:"
-    #return f"\nGiven the following code:\n{file_content}\nProvide a fix for the following issue found by SonarCloud:{issue['message']}\nThe issue is located on line {issue['line']}\nSuggested Fix:"
-    #return f"Issue: {issue}\n\n---\n{file_content}\n---\n\nSuggested Fix:"
-    #return f"Please fix the issue in the divide() function in the given code snippet. The issue occurs on line {issue['line']} and is described as: {issue['message']}\n\n---\n{file_content}\n---\n\nProvide the corrected divide() function below:"
     return f"##### The SonarCloud found the following issue on line {issue['line']}: {issue['message']}\n \n### Code with issues\n{file_content}\n \n### Fixed Code that only contains fixed block of lines of code and not the entire code:"
 
 def apply_suggested_fix(file_content, issue, suggested_fix):
@@ -167,9 +157,6 @@ def main():
         repo = Repo.clone_from(repo_url, tmp_dir, branch='master')
 
         # Set author identity for Git
-        # repo.config_writer().set_value("user", "name", "odegay").release()
-        # repo.config_writer().set_value("user", "email", "dolegan@gmail.com").release()
-
         repo.config_writer().set_value("user", "name", "robot").release()
         repo.config_writer().set_value("user", "email", "noreply@noreply.com").release()
 
