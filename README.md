@@ -17,3 +17,4 @@
 `npm run start:stag` - staging mode  
 `npm run start:prod` - production mode  
 
+docker run --rm -it --entrypoint bash -v C:\Git\vanilla-nodejs-seed\ ubl
