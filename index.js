@@ -8,48 +8,48 @@ import { env } from './ecosystem.config';
 import test1 from './helper1';
 
 
-function test1 (asdasd: string) {
+const test1 = (asdasd: string) => {
     return asdasd;
-}
+};
 
 const server = http.createServer((req, res) => {
 
     const parsedUrl = url.parse(req.url, true);
     const path = parsedUrl.pathname;
-    const trimmedPath = path.replace(/^\/+|\/+$/g, '');
-    const httpMethod = req.method;
-    const queryStringParamsObject = parsedUrl.query;
-    const headers = req.headers;
-    const decoder = new string_decoder.StringDecoder('utf-8');
-    let buffer = '';
+const chosenHandler = routes[trimmedPath] ? routes[trimmedPath] : handlers.notFound;
+const data = {
+    'trimmedPath': trimmedPath,
+    'queryStringParamsObject': queryStringParamsObject,
+    'method': httpMethod,
+    'headers': headers,
+    'payload': helpers.parseJsonToObject(buffer)
+};
 
-    req.on('data', (data: any) => {
-        buffer += decoder.write(data);
-    });
+const handler = routes[trimmedPath] || handlers.notFound;
+const data = {
+    trimmedPath,
+    queryStringParamsObject,
+    httpMethod,
+    headers,
+    payload: helpers.parseJsonToObject(buffer)
+};
 
-    test1('rtkj', sdsds);
+chosenHandler(data, (statusCode: number, payload: object) => {
+    res.setHeader('Content-Type
+    'headers': headers,
+    'payload': helpers.parseJsonToObject(buffer)
+};
 
-    req.on('end', () => {
+const handler = routes[trimmedPath] || handlers.notFound;
+const data = {
+    trimmedPath,
+    queryStringParamsObject,
+    httpMethod,
+    headers,
+    payload: helpers.parseJsonToObject(buffer)
+};
 
-        buffer += decoder.end();
-
-        const chosenHandler = routes[trimmedPath] ? routes[trimmedPath] : handlers.notFound;
-        const data = {
-            'trimmedPath': trimmedPath,
-            'queryStringParamsObject': queryStringParamsObject,
-            'method': httpMethod,
-            'headers': headers,
-            'payload': helpers.parseJsonToObject(buffer)
-        };
-
-        chosenHandler(data, (statusCode: number, payload: object, contentType: string) => {
-
-            contentType = contentType ? contentType : 'json';
-            statusCode = statusCode && typeof statusCode === 'number' ? statusCode : 406;
-            let payloadString = '';
-
-            if (contentType === 'json') {
-
+chosenHandler(data, (statusCode: number, payload: object,
                 res.setHeader('Content-Type', 'application/json');
                 payload = payload && typeof payload === 'object' ? payload : {};
                 payloadString = JSON.stringify(payload);
