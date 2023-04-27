@@ -2,7 +2,7 @@ function divide(a, b) {
     if (b === 0) {
       return "Error: Divide by zero";
     } else {
-      return Number(a / b);
+      return a / b;
     }
   }
 
