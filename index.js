@@ -23,7 +23,7 @@ const server = http.createServer((req, res) => {
         buffer += decoder.write(data);
     });
 
-    const test1Result = test1('rtkj', sdsds);
+    const test1Result = test1('rtkj', 'sdsds');
 
     req.on('end', () => {
 
