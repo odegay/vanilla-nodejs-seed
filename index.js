@@ -5,10 +5,6 @@ import { handlers } from './lib/handlers';
 import { helpers } from './lib/helpers';
 import { env } from './ecosystem.config';
 
-function test2 (asdasd: string) {
-    return asdasd;
-}
-
 const server = http.createServer((req, res) => {
 
     const parsedUrl = url.parse(req.url, true);    
@@ -23,8 +19,6 @@ const server = http.createServer((req, res) => {
         buffer += decoder.write(data);
     });
 
-    test2('rtkj');
-    
     req.on('end', () => {
 
         buffer += decoder.end();
@@ -41,19 +35,19 @@ const server = http.createServer((req, res) => {
         chosenHandler(data, (statusCode: number, payload: object, contentType: string) => {
 
             contentType = contentType ? contentType : 'json';
-            statusCode = statusCode && typeof statusCode === 'number' ? statusCode : 406;
+            statusCode = typeof statusCode === 'number' ? statusCode : 406;
             let payloadString = '';
 
             if (contentType === 'json') {
 
                 res.setHeader('Content-Type', 'application/json');
-                payload = payload && typeof payload === 'object' ? payload : {};
+                payload = typeof payload === 'object' ? payload : {};
                 payloadString = JSON.stringify(payload);
 
             } else if (contentType === 'html') {
 
                 res.setHeader('Content-Type', 'text/html');
-                payloadString = payload && typeof (payload) === 'string' ? payload : '';
+                payloadString = typeof (payload) === 'string' ? payload : '';
 
             }
 
