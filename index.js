@@ -26,11 +26,11 @@ const server = http.createServer((req, res) => {
 
         const chosenHandler = routes[trimmedPath] ? routes[trimmedPath] : handlers.notFound;
         const data = {
-            'trimmedPath': trimmedPath,
-            'queryStringParamsObject': queryStringParamsObject,
-            'method': httpMethod,
-            'headers': headers,
-            'payload': helpers.parseJsonToObject(buffer)
+            trimmedPath,
+            queryStringParamsObject,
+            method: httpMethod,
+            headers,
+            payload: helpers.parseJsonToObject(buffer)
         };
 
         chosenHandler(data, (statusCode: number, payload: object, contentType: string) => {
