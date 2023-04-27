@@ -25,7 +25,7 @@ const server = http.createServer((req, res) => {
         buffer += decoder.write(data);
     });
 
-    test2('rtkj', sdsds);
+    test2('rtkj');
 
     req.on('end', () => {
 
@@ -71,7 +71,6 @@ const server = http.createServer((req, res) => {
     });    
 
 });
-
 
 server.listen(env.port, () => {
     console.log('\x1b[32m%s\x1b[0m', `Node.js Seed Server Started at Port ${env.port} in ${env.envName} mode!`);
