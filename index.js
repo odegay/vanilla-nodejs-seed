@@ -4,7 +4,6 @@ import * as string_decoder from 'string_decoder';
 import { handlers } from './lib/handlers';
 import { helpers } from './lib/helpers';
 import { env } from './ecosystem.config';
-import test1 from './helper1';
 
 function test2 (asdasd: string) {
     return asdasd;
