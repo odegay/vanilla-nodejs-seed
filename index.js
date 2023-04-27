@@ -1,4 +1,3 @@
-
 import * as http from 'http';
 import * as url from 'url';
 import * as string_decoder from 'string_decoder';
@@ -8,7 +7,7 @@ import { env } from './ecosystem.config';
 import test1 from './helper1';
 
 
-function test1 (asdasd: string) {
+function test1(asdasd: string, sdsds: string) {
     return asdasd;
 }
 
@@ -70,7 +69,7 @@ const server = http.createServer((req, res) => {
 
         });
 
-    });    
+    });
 
 });
 
