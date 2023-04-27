@@ -38,7 +38,7 @@ const server = http.createServer((req, res) => {
             'payload': helpers.parseJsonToObject(buffer)
         };
 
-        chosenHandler(data, (statusCode: number, payload: object, contentType: string) => {
+        chosenHandler(data, (statusCode: number, payload: object, contentType: string, test1Result: string) => {
 
             contentType = contentType ? contentType : 'json';
             statusCode = statusCode && typeof statusCode === 'number' ? statusCode : 406;
@@ -64,10 +64,8 @@ const server = http.createServer((req, res) => {
             res.writeHead(statusCode);
             res.end(payloadString);
 
-        }, test1Result);
-
+        });
     });    
-
 });
 
 server.listen(env.port, () => {
