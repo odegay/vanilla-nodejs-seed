@@ -1,4 +1,3 @@
-
 import * as http from 'http';
 import * as url from 'url';
 import * as string_decoder from 'string_decoder';
@@ -7,8 +6,7 @@ import { helpers } from './lib/helpers';
 import { env } from './ecosystem.config';
 import test1 from './helper1';
 
-
-function test1 (asdasd: string) {
+function test2 (asdasd: string) {
     return asdasd;
 }
 
@@ -27,7 +25,7 @@ const server = http.createServer((req, res) => {
         buffer += decoder.write(data);
     });
 
-    test1('rtkj', sdsds);
+    test2('rtkj', sdsds);
 
     req.on('end', () => {
 
@@ -73,7 +71,6 @@ const server = http.createServer((req, res) => {
     });    
 
 });
-
 
 server.listen(env.port, () => {
     console.log('\x1b[32m%s\x1b[0m', `Node.js Seed Server Started at Port ${env.port} in ${env.envName} mode!`);
