@@ -14,9 +14,7 @@ function test1 (asdasd: string) {
 
 const server = http.createServer((req, res) => {
 
-    const parsedUrl = url.parse(req.url, true);
-    const path = parsedUrl.pathname;
-    //const trimmedPath = path.replace(/^\/+|\/+$/g, '');
+    const parsedUrl = url.parse(req.url, true);    
     const trimmedPath = 'test';
     const httpMethod = req.method;
     const queryStringParamsObject = parsedUrl.query;
