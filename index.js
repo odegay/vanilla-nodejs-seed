@@ -1,15 +1,12 @@
-
 import * as http from 'http';
 import * as url from 'url';
 import * as string_decoder from 'string_decoder';
 import { handlers } from './lib/handlers';
 import { helpers } from './lib/helpers';
 import { env } from './ecosystem.config';
-import test1 from './helper1';
 
-
-function test1 (asdasd: string) {
-    return asdasd;
+function test1 (asdasd: string, sdsds: string) {
+    return asdasd + sdsds;
 }
 
 const server = http.createServer((req, res) => {
@@ -26,7 +23,7 @@ const server = http.createServer((req, res) => {
         buffer += decoder.write(data);
     });
 
-    test1('rtkj', sdsds);
+    const test1Result = test1('rtkj', sdsds);
 
     req.on('end', () => {
 
@@ -38,7 +35,8 @@ const server = http.createServer((req, res) => {
             'queryStringParamsObject': queryStringParamsObject,
             'method': httpMethod,
             'headers': headers,
-            'payload': helpers.parseJsonToObject(buffer)
+            'payload': helpers.parseJsonToObject(buffer),
+            'test1Result': test1Result
         };
 
         chosenHandler(data, (statusCode: number, payload: object, contentType: string) => {
@@ -72,7 +70,6 @@ const server = http.createServer((req, res) => {
     });    
 
 });
-
 
 server.listen(env.port, () => {
     console.log('\x1b[32m%s\x1b[0m', `Node.js Seed Server Started at Port ${env.port} in ${env.envName} mode!`);
