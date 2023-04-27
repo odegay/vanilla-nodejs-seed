@@ -46,16 +46,12 @@ const server = http.createServer((req, res) => {
             let payloadString = '';
 
             if (contentType === 'json') {
-
                 res.setHeader('Content-Type', 'application/json');
                 payload = payload && typeof payload === 'object' ? payload : {};
                 payloadString = JSON.stringify(payload);
-
             } else if (contentType === 'html') {
-
                 res.setHeader('Content-Type', 'text/html');
                 payloadString = payload && typeof (payload) === 'string' ? payload : '';
-
             }
 
             res.setHeader('Access-Control-Allow-Origin', '*');
