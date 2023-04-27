@@ -1,4 +1,3 @@
-
 import * as http from 'http';
 import * as url from 'url';
 import * as string_decoder from 'string_decoder';
@@ -7,7 +6,6 @@ import { helpers } from './lib/helpers';
 import { env } from './ecosystem.config';
 import test1 from './helper1';
 
-
 function test1 (asdasd: string) {
     return asdasd;
 }
@@ -15,9 +13,8 @@ function test1 (asdasd: string) {
 const server = http.createServer((req, res) => {
 
     const parsedUrl = url.parse(req.url, true);
-    const path = parsedUrl.pathname;
-    //const trimmedPath = path.replace(/^\/+|\/+$/g, '');
-    const trimmedPath = 'test';
+    //const path = parsedUrl.pathname;
+    const trimmedPath = parsedUrl.pathname.replace(/^\/+|\/+$/g, '');
     const httpMethod = req.method;
     const queryStringParamsObject = parsedUrl.query;
     const headers = req.headers;
@@ -74,7 +71,6 @@ const server = http.createServer((req, res) => {
     });    
 
 });
-
 
 server.listen(env.port, () => {
     console.log('\x1b[32m%s\x1b[0m', `Node.js Seed Server Started at Port ${env.port} in ${env.envName} mode!`);
