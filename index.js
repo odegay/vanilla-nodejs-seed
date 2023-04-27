@@ -1,16 +1,9 @@
-
 import * as http from 'http';
 import * as url from 'url';
 import * as string_decoder from 'string_decoder';
 import { handlers } from './lib/handlers';
 import { helpers } from './lib/helpers';
 import { env } from './ecosystem.config';
-import test1 from './helper1';
-
-
-function test1 (asdasd: string) {
-    return asdasd;
-}
 
 const server = http.createServer((req, res) => {
 
@@ -26,8 +19,6 @@ const server = http.createServer((req, res) => {
     req.on('data', (data: any) => {
         buffer += decoder.write(data);
     });
-
-    test1('rtkj', sdsds);
 
     req.on('end', () => {
 
