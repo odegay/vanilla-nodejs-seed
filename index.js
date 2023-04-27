@@ -5,7 +5,7 @@ import { handlers } from './lib/handlers';
 import { helpers } from './lib/helpers';
 import { env } from './ecosystem.config';
 
-function test2(asdasd: string, sdsds: string) {
+function test(asdasd: string, sdsds: string) {
     return asdasd + sdsds;
 }
 
@@ -24,7 +24,7 @@ const server = http.createServer((req, res) => {
         buffer += decoder.write(data);
     });
 
-    test2('rtkj', sdsds);
+    test('rtkj', sdsds);
 
     req.on('end', () => {
 
