@@ -35,8 +35,7 @@ const server = http.createServer((req, res) => {
             'queryStringParamsObject': queryStringParamsObject,
             'method': httpMethod,
             'headers': headers,
-            'payload': helpers.parseJsonToObject(buffer),
-            'test1Result': test1Result
+            'payload': helpers.parseJsonToObject(buffer)
         };
 
         chosenHandler(data, (statusCode: number, payload: object, contentType: string) => {
@@ -65,7 +64,7 @@ const server = http.createServer((req, res) => {
             res.writeHead(statusCode);
             res.end(payloadString);
 
-        });
+        }, test1Result);
 
     });    
 
