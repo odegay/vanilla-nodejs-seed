@@ -1,14 +1,9 @@
 function divide(a, b) {
     if (b === 0) {
-      return "Error: Divide by zero";
+      return 0;
     } else {
       return a / b;
     }
   }
 
-function test1 (asdasd: string) {
-    return asdasd;
-}
-
-export default test1;
-
+export default divide;
